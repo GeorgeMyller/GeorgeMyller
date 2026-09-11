@@ -114,35 +114,28 @@ def fetch_github_stats() -> Dict[str, Any]:
     return stats
 
 
-def generate_ascii_avatar(image_path: Path, width: int = 38, height: int = 24) -> List[str]:
-    """Gera a arte ASCII calibrada sem ruídos de fundo."""
-    if not image_path.exists():
-        return [" " * width for _ in range(height)]
-
-    img = Image.open(image_path).convert("RGB")
-    resized = img.resize((width, height), Image.Resampling.LANCZOS)
-    gray = resized.convert("L")
-
-    enhancer = ImageEnhance.Contrast(gray)
-    contrast = enhancer.enhance(1.8)
-    sharp = contrast.filter(ImageFilter.SHARPEN)
-
-    chars = " .:-=+*#%@"
-    lines = []
-
-    for y in range(height):
-        row = ""
-        for x in range(width):
-            r, g, b = resized.getpixel((x, y))
-            if (r > 195 and g > 195 and b > 185) or (x < 4 and y < 14) or (x > 33 and y < 14):
-                row += " "
-            else:
-                val = sharp.getpixel((x, y))
-                idx = int(((255 - val) / 255) * (len(chars) - 1))
-                row += chars[min(max(idx, 0), len(chars) - 1)]
-        lines.append(row)
-
-    return lines
+def get_gm_logo() -> List[str]:
+    """Retorna o logotipo geométrico cyberpunk GM AI-CORE personalizado."""
+    return [
+        "             ┌─────────┐            ",
+        "         ────┤ AI-CORE ├────        ",
+        "             └────┬────┘            ",
+        "      ┌───────────┴───────────┐     ",
+        "      │   ▄████▄    █▄     ▄█ │     ",
+        "      │  ██▀  ▀██   ███   ███ │     ",
+        "      │ ██▌         ██▀█ █▀██ │     ",
+        "      │ ██▌  ████   ██ ▀█▀ ██ │     ",
+        "      │ ██▌    ██   ██     ██ │     ",
+        "      │  ▀██▄▄██▀   ██     ██ │     ",
+        "      └───────────┬───────────┘     ",
+        "             ┌────┴────┐            ",
+        "         ────┤ SWARMS  ├────        ",
+        "             └─────────┘            ",
+        "     ─────────────────────────      ",
+        "        G E O R G E   M Y L L E R   ",
+        "      ◆  AI SYSTEMS ARCHITECT  ◆    ",
+        "     ─────────────────────────      ",
+    ]
 
 
 def format_num(num: int) -> str:
@@ -330,12 +323,12 @@ text, tspan { white-space: pre; }
     svg.append(f'<line x1="{split_x}" y1="{pane_top}" x2="{split_x}" y2="{pane_bottom}" stroke="{pane_border}" stroke-width="1.5" stroke-dasharray="4,4"/>')
 
     # Pane Labels
-    svg.append(f'<text x="24" y="{pane_top + 4}" font-size="10px" font-weight="bold" fill="{text_dim}">[0:avatar]</text>')
+    svg.append(f'<text x="24" y="{pane_top + 4}" font-size="10px" font-weight="bold" fill="{text_dim}">[0:brand &amp; core]</text>')
     svg.append(f'<text x="{split_x + 15}" y="{pane_top + 4}" font-size="10px" font-weight="bold" fill="{text_dim}">[1:telemetry &amp; daemons]</text>')
 
-    # 5. Left Pane: Detailed ASCII Avatar + Spec Box
+    # 5. Left Pane: Custom Cyberpunk GM AI-CORE Logo + Spec Box
     ascii_x = 22
-    y_start_ascii = 110
+    y_start_ascii = 108
     line_h = 17
 
     svg.append(f'<text x="{ascii_x}" y="{y_start_ascii}" class="ascii">')
@@ -345,9 +338,9 @@ text, tspan { white-space: pre; }
     svg.append('</text>')
 
     # Spec Box in Left Pane
-    box_y = y_start_ascii + (len(ascii_lines) * line_h) + 12
+    box_y = y_start_ascii + (len(ascii_lines) * line_h) + 14
     box_w = 310
-    box_h = 125
+    box_h = 130
     svg.append(f'<rect x="{ascii_x}" y="{box_y}" width="{box_w}" height="{box_h}" rx="8" fill="{pill_bg}" stroke="{border_color}" stroke-width="1"/>')
     
     spec_text_y = box_y + 22
@@ -475,21 +468,20 @@ text, tspan { white-space: pre; }
 
 def main():
     root_dir = Path(__file__).parent
-    avatar_path = root_dir / "avatar.jpg"
 
     print("Fetching GitHub stats...")
     stats = fetch_github_stats()
     uptime_str = calculate_uptime(START_DATE)
 
-    print("Generating refined ASCII avatar...")
-    ascii_lines = generate_ascii_avatar(avatar_path, width=38, height=24)
+    print("Generating custom GM AI-CORE logo...")
+    logo_lines = get_gm_logo()
 
     print("Generating refined terminal_dark.svg...")
-    dark_svg = build_svg("dark", ascii_lines, stats, uptime_str)
+    dark_svg = build_svg("dark", logo_lines, stats, uptime_str)
     (root_dir / "terminal_dark.svg").write_text(dark_svg, encoding="utf-8")
 
     print("Generating refined terminal_light.svg...")
-    light_svg = build_svg("light", ascii_lines, stats, uptime_str)
+    light_svg = build_svg("light", logo_lines, stats, uptime_str)
     (root_dir / "terminal_light.svg").write_text(light_svg, encoding="utf-8")
 
     # Remove os nomes antigos se existirem
