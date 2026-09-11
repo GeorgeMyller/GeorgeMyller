@@ -48,7 +48,7 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add terminal_dark.svg terminal_light.svg
+          git add gm_terminal_dark.svg gm_terminal_light.svg
           if git diff --staged --quiet; then
             echo "Nenhuma alteração nos SVGs. Tudo atualizado."
           else

@@ -476,13 +476,13 @@ def main():
     print("Generating custom GM AI-CORE logo...")
     logo_lines = get_gm_logo()
 
-    print("Generating refined terminal_dark.svg...")
+    print("Generating refined gm_terminal_dark.svg...")
     dark_svg = build_svg("dark", logo_lines, stats, uptime_str)
-    (root_dir / "terminal_dark.svg").write_text(dark_svg, encoding="utf-8")
+    (root_dir / "gm_terminal_dark.svg").write_text(dark_svg, encoding="utf-8")
 
-    print("Generating refined terminal_light.svg...")
+    print("Generating refined gm_terminal_light.svg...")
     light_svg = build_svg("light", logo_lines, stats, uptime_str)
-    (root_dir / "terminal_light.svg").write_text(light_svg, encoding="utf-8")
+    (root_dir / "gm_terminal_light.svg").write_text(light_svg, encoding="utf-8")
 
     # Remove os nomes antigos se existirem
     (root_dir / "dark_mode.svg").unlink(missing_ok=True)
