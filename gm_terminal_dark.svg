@@ -112,7 +112,7 @@ text, tspan { white-space: pre; }
   <tspan x="368" y="130"><tspan class="key">Role</tspan><tspan class="dot">...........: </tspan><tspan class="val">Junior Software Engineer / AI Systems Architect</tspan></tspan>
   <tspan x="368" y="148"><tspan class="key">OS</tspan><tspan class="dot">.............: </tspan><tspan class="val">Linux x86_64, macOS</tspan></tspan>
   <tspan x="368" y="166"><tspan class="key">Host</tspan><tspan class="dot">...........: </tspan><tspan class="val">Portugal</tspan></tspan>
-  <tspan x="368" y="184"><tspan class="key">Uptime</tspan><tspan class="dot">.........: </tspan><tspan class="val">7 yrs, 6 mos, 19 days</tspan></tspan>
+  <tspan x="368" y="184"><tspan class="key">Uptime</tspan><tspan class="dot">.........: </tspan><tspan class="val">7 yrs, 6 mos, 20 days</tspan></tspan>
   <tspan x="368" y="202"><tspan class="key">Stack.Core</tspan><tspan class="dot">.....: </tspan><tspan class="val">Python 3.12 (FastAPI), TypeScript, React, D3.js</tspan></tspan>
   <tspan x="368" y="220"><tspan class="key">Hobbies.Tech</tspan><tspan class="dot">...: </tspan><tspan class="val">AI Agents, Open Source, Hardware Engineering</tspan></tspan>
   <tspan x="368" y="246"><tspan class="key">[Autonomous Swarm: Active Daemons]</tspan> <tspan class="dot">──────────────────────────────</tspan></tspan>
@@ -127,7 +127,7 @@ text, tspan { white-space: pre; }
   <tspan x="368" y="416"><tspan class="white"> Postgres / Docker</tspan><tspan class="bar-db">[██████████████░░░░░░] 60%</tspan> <tspan class="dim">Persistence &amp; CI/CD</tspan></tspan>
   <tspan x="368" y="442"><tspan class="key">[GitHub Live Telemetry]</tspan> <tspan class="dot">─────────────────────────────────────────────</tspan></tspan>
   <tspan x="368" y="460"><tspan class="key">Repos</tspan><tspan class="dot">: </tspan><tspan class="val">43</tspan> <tspan class="dot">(Contributed: 1)</tspan> <tspan class="dot">|</tspan> <tspan class="key">Stars</tspan><tspan class="dot">: </tspan><tspan class="val">18</tspan> <tspan class="dot">|</tspan> <tspan class="key">Followers</tspan><tspan class="dot">: </tspan><tspan class="val">8</tspan></tspan>
-  <tspan x="368" y="478"><tspan class="key">Commits</tspan><tspan class="dot">: </tspan><tspan class="val">1,828</tspan> <tspan class="dot">|</tspan> <tspan class="key">Lines of Code</tspan><tspan class="dot">: </tspan><tspan class="val">143,090</tspan> <tspan class="add">(185,240++)</tspan>, <tspan class="del">(42,150--)</tspan></tspan>
+  <tspan x="368" y="478"><tspan class="key">Commits</tspan><tspan class="dot">: </tspan><tspan class="val">1,922</tspan> <tspan class="dot">|</tspan> <tspan class="key">Lines of Code</tspan><tspan class="dot">: </tspan><tspan class="val">143,090</tspan> <tspan class="add">(185,240++)</tspan>, <tspan class="del">(42,150--)</tspan></tspan>
   <tspan x="368" y="504"><tspan class="key">[Network Links]</tspan> <tspan class="dot">─────────────────────────────────────────────────────</tspan></tspan>
   <tspan x="368" y="522"><tspan class="key">GitHub</tspan><tspan class="dot">...: </tspan><a href="https://github.com/GeorgeMyller"><tspan class="link">github.com/GeorgeMyller</tspan></a>  <tspan class="dot">│</tspan>  <tspan class="key">LinkedIn</tspan><tspan class="dot">: </tspan><a href="https://linkedin.com/in/georgemyller"><tspan class="link">linkedin.com/in/georgemyller</tspan></a></tspan>
 </text>
@@ -140,7 +140,7 @@ text, tspan { white-space: pre; }
 <text x="224" y="708" font-size="12px" fill="#bc8cff">Python 3.12</text>
 <text x="315" y="708" font-size="12px" fill="#484f58">│</text>
 <text x="330" y="708" font-size="12px" fill="#a5d6ff">Swarm: 4 Active Daemons</text>
-<text x="730" y="708" font-size="12px" fill="#ffa657">Commits: 1,828</text>
+<text x="730" y="708" font-size="12px" fill="#ffa657">Commits: 1,922</text>
 <text x="855" y="708" font-size="12px" fill="#484f58">│</text>
 <text x="870" y="708" font-size="12px" fill="#7ee787">Portugal</text>
 <polygon points="965,686 1040,686 1040,720 965,720 953,703" fill="#1f6feb"/>
