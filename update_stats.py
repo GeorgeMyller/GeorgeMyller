@@ -38,17 +38,26 @@ LANGUAGE_METADATA: Dict[str, Tuple[str, str]] = {
     "HCL": ("Terraform / IaC", "Cloud Infrastructure"),
 }
 
-# Linguagens ignoradas ou agrupadas para não poluir com marcação/notebooks
+# Linguagens ignoradas ou agrupadas para focar apenas em linguagens de programação reais
 LANGUAGE_ALIASES: Dict[str, str] = {
     "Jupyter Notebook": "Python",
     "TSX": "TypeScript",
     "JSX": "JavaScript",
     "PLpgSQL": "SQL",
-    "Batchfile": "Shell",
-    "Makefile": "Shell",
 }
 
-IGNORED_LANGUAGES = {"HTML", "CSS", "SCSS", "Less", "Rich Text Format", "TeX"}
+IGNORED_LANGUAGES = {
+    "HTML",
+    "CSS",
+    "SCSS",
+    "Less",
+    "Rich Text Format",
+    "TeX",
+    "Shell",
+    "Makefile",
+    "Batchfile",
+    "Dockerfile",
+}
 
 
 def calculate_uptime(start_date: datetime.datetime) -> str:
