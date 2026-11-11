@@ -48,8 +48,8 @@ text, tspan { white-space: pre; }
 <rect x="95" y="8" width="165" height="34" rx="6" fill="#f6f8fa"/>
 <line x1="103" y1="8" x2="252" y2="8" stroke="#0969da" stroke-width="2"/>
 <text x="115" y="29" font-size="12px" font-weight="bold" fill="#1f2328">⚡ ai-workspace</text>
-<text x="280" y="29" font-size="12px" fill="#656d76">crewai-pipeline</text>
-<text x="400" y="29" font-size="12px" fill="#656d76">swarm-agents</text>
+<text x="280" y="29" font-size="12px" fill="#656d76">sdd-architecture</text>
+<text x="410" y="29" font-size="12px" fill="#656d76">swarm-agents</text>
 <text x="1016" y="27" font-size="12px" fill="#656d76" text-anchor="end">zsh · tmux 3.4 · 1040x720</text>
 <text x="22" y="70">
   <tspan fill="#0969da" font-weight="bold">george@myller</tspan>
@@ -93,41 +93,41 @@ text, tspan { white-space: pre; }
   <tspan class="title">┌─ [Agent Engine Specs] ──────┐</tspan>
 </text>
 <text x="36" y="469">
-  <tspan class="key">• Target</tspan><tspan class="dim">: </tspan><tspan class="val">Multi-Agent Swarms</tspan>
+  <tspan class="key">• Target</tspan><tspan class="dim">: </tspan><tspan class="val">Multi-Agent &amp; AI Systems</tspan>
 </text>
 <text x="36" y="488">
-  <tspan class="key">• Stack</tspan><tspan class="dim">: </tspan><tspan class="val">CrewAI, FastAPI, D3.js</tspan>
+  <tspan class="key">• Stack</tspan><tspan class="dim">: </tspan><tspan class="val">FastAPI, React, Rust, Go</tspan>
 </text>
 <text x="36" y="507">
   <tspan class="key">• Tools</tspan><tspan class="dim">: </tspan><tspan class="val">Claude Code, Antigravity</tspan>
 </text>
 <text x="36" y="526">
-  <tspan class="key">• Arch</tspan><tspan class="dim">: </tspan><tspan class="val">Clean Architecture &amp; SOLID</tspan>
+  <tspan class="key">• Arch</tspan><tspan class="dim">: </tspan><tspan class="val">Clean Arch, SDD &amp; SOLID</tspan>
 </text>
 <text x="36" y="545">
   <tspan class="title">└─────────────────────────────┘</tspan>
 </text>
 <text x="368" y="112">
   <tspan x="368" y="112"><tspan class="title">george@myller</tspan> <tspan class="dot">─────────────────────────────────────────────────────</tspan></tspan>
-  <tspan x="368" y="130"><tspan class="key">Role</tspan><tspan class="dot">...........: </tspan><tspan class="val">Junior Software Engineer / AI Systems Architect</tspan></tspan>
-  <tspan x="368" y="148"><tspan class="key">OS</tspan><tspan class="dot">.............: </tspan><tspan class="val">Linux x86_64, macOS</tspan></tspan>
+  <tspan x="368" y="130"><tspan class="key">Role</tspan><tspan class="dot">...........: </tspan><tspan class="val">AI Systems Architect &amp; Full-Stack Engineer</tspan></tspan>
+  <tspan x="368" y="148"><tspan class="key">OS</tspan><tspan class="dot">.............: </tspan><tspan class="val">macOS, Linux (Docker / Distroless)</tspan></tspan>
   <tspan x="368" y="166"><tspan class="key">Host</tspan><tspan class="dot">...........: </tspan><tspan class="val">Portugal</tspan></tspan>
-  <tspan x="368" y="184"><tspan class="key">Uptime</tspan><tspan class="dot">.........: </tspan><tspan class="val">7 yrs, 6 mos, 25 days</tspan></tspan>
-  <tspan x="368" y="202"><tspan class="key">Stack.Core</tspan><tspan class="dot">.....: </tspan><tspan class="val">Python 3.12 (FastAPI), TypeScript, React, D3.js</tspan></tspan>
-  <tspan x="368" y="220"><tspan class="key">Hobbies.Tech</tspan><tspan class="dot">...: </tspan><tspan class="val">AI Agents, Open Source, Hardware Engineering</tspan></tspan>
+  <tspan x="368" y="184"><tspan class="key">Uptime</tspan><tspan class="dot">.........: </tspan><tspan class="val">7 yrs, 7 mos, 1 day</tspan></tspan>
+  <tspan x="368" y="202"><tspan class="key">Stack.Core</tspan><tspan class="dot">.....: </tspan><tspan class="val">Python 3.12 (FastAPI), TypeScript, React, Rust, Go</tspan></tspan>
+  <tspan x="368" y="220"><tspan class="key">Engineering</tspan><tspan class="dot">....: </tspan><tspan class="val">Spec-Driven Dev (SDD), Clean Arch, TDD, Multi-Agent</tspan></tspan>
   <tspan x="368" y="246"><tspan class="key">[Autonomous Swarm: Active Daemons]</tspan> <tspan class="dot">──────────────────────────────</tspan></tspan>
-  <tspan x="368" y="264"><tspan class="dim">NAME                STATUS      ENGINE / MODEL           UPTIME   PORT</tspan></tspan>
-  <tspan x="368" y="282"><a href="https://github.com/GeorgeMyller/mira-animator"><tspan class="link">mira-animator</tspan></a>     <tspan class="online">● RUNNING</tspan>   <tspan class="white">D3.js Vector Engine</tspan>      <tspan class="dim">99.8%</tspan>    <tspan class="key">:8080</tspan></tspan>
-  <tspan x="368" y="300"><a href="https://github.com/GeorgeMyller/groups_evo_crewai"><tspan class="link">groups_evo_crew</tspan></a>   <tspan class="online">● ACTIVE</tspan>    <tspan class="white">CrewAI Swarm Cluster</tspan>     <tspan class="dim">100%</tspan>     <tspan class="key">:9000</tspan></tspan>
-  <tspan x="368" y="318"><a href="https://github.com/GeorgeMyller/agentinstagram"><tspan class="link">agentinstagram</tspan></a>    <tspan class="pause">● STANDBY</tspan>   <tspan class="white">Autonomous Workflow</tspan>      <tspan class="dim">paused</tspan>   <tspan class="key">:5000</tspan></tspan>
-  <tspan x="368" y="336"><a href="https://github.com/GeorgeMyller/resume_optimizer_crew_v2"><tspan class="link">resume_optimizer</tspan></a>   <tspan class="online">● RUNNING</tspan>   <tspan class="white">CrewAI Multi-Agent Engine</tspan>   <tspan class="dim">99.9%</tspan>    <tspan class="key">:3000</tspan></tspan>
+  <tspan x="368" y="264"><tspan class="dim">NAME                STATUS      ENGINE / ARCHITECTURE     TESTS    PORT</tspan></tspan>
+  <tspan x="368" y="282"><a href="https://github.com/GeorgeMyller/SimuladorRemap"><tspan class="link">SimuladorRemap</tspan></a>      <tspan class="online">● RUNNING</tspan>   <tspan class="white">PyO3 Rust + LAYA.ai ECU</tspan>   <tspan class="dim">&gt;85% cov</tspan> <tspan class="key">:8000</tspan></tspan>
+  <tspan x="368" y="300"><a href="https://github.com/GeorgeMyller/sintetica"><tspan class="link">sintetica</tspan></a>           <tspan class="online">● ACTIVE</tspan>    <tspan class="white">Pydantic v2 + PII-Guard</tspan>   <tspan class="dim">570 pass</tspan> <tspan class="key">:9000</tspan></tspan>
+  <tspan x="368" y="318"><a href="https://github.com/GeorgeMyller/CodeConcilAI"><tspan class="link">CodeConcilAI</tspan></a>        <tspan class="online">● RUNNING</tspan>   <tspan class="white">Multi-Agent SaaS Engine</tspan>   <tspan class="dim">51 pass</tspan>  <tspan class="key">:3000</tspan></tspan>
+  <tspan x="368" y="336"><a href="https://github.com/GeorgeMyller/towerman-relay"><tspan class="link">towerman-relay</tspan></a>      <tspan class="online">● ONLINE</tspan>    <tspan class="white">Go Zero-Knowledge E2EE</tspan>    <tspan class="dim">X25519</tspan>   <tspan class="key">:8080</tspan></tspan>
   <tspan x="368" y="362"><tspan class="key">[Resource Allocation &amp; Stack Capacity]</tspan> <tspan class="dot">────────────────────────────</tspan></tspan>
-  <tspan x="368" y="380"><tspan class="white"> Python / FastAPI </tspan><tspan class="bar-py">[████████████████░░░░] 74%</tspan> <tspan class="dim">Core Logic &amp; Agents</tspan></tspan>
-  <tspan x="368" y="398"><tspan class="white"> TypeScript/React </tspan><tspan class="bar-ts">[████████░░░░░░░░░░░░] 26%</tspan> <tspan class="dim">SPAs &amp; Dynamic UI</tspan></tspan>
-  <tspan x="368" y="416"><tspan class="white"> Postgres / Docker</tspan><tspan class="bar-db">[██████████████░░░░░░] 60%</tspan> <tspan class="dim">Persistence &amp; CI/CD</tspan></tspan>
+  <tspan x="368" y="380"><tspan class="white"> Python / FastAPI </tspan><tspan class="bar-py">[█████████████████░░░] 85%</tspan> <tspan class="dim">Core Logic &amp; Agents</tspan></tspan>
+  <tspan x="368" y="398"><tspan class="white"> TypeScript/React </tspan><tspan class="bar-ts">[███░░░░░░░░░░░░░░░░░] 15%</tspan> <tspan class="dim">SPAs &amp; Dynamic UI</tspan></tspan>
+  <tspan x="368" y="416"><tspan class="white"> Rust / Go / Dock </tspan><tspan class="bar-db">[█████████████░░░░░░░] 65%</tspan> <tspan class="dim">Systems &amp; CI/CD</tspan></tspan>
   <tspan x="368" y="442"><tspan class="key">[GitHub Live Telemetry]</tspan> <tspan class="dot">─────────────────────────────────────────────</tspan></tspan>
-  <tspan x="368" y="460"><tspan class="key">Repos</tspan><tspan class="dot">: </tspan><tspan class="val">43</tspan> <tspan class="dot">(Contributed: 1)</tspan> <tspan class="dot">|</tspan> <tspan class="key">Stars</tspan><tspan class="dot">: </tspan><tspan class="val">18</tspan> <tspan class="dot">|</tspan> <tspan class="key">Followers</tspan><tspan class="dot">: </tspan><tspan class="val">8</tspan></tspan>
-  <tspan x="368" y="478"><tspan class="key">Commits</tspan><tspan class="dot">: </tspan><tspan class="val">1,977</tspan> <tspan class="dot">|</tspan> <tspan class="key">Lines of Code</tspan><tspan class="dot">: </tspan><tspan class="val">143,090</tspan> <tspan class="add">(185,240++)</tspan>, <tspan class="del">(42,150--)</tspan></tspan>
+  <tspan x="368" y="460"><tspan class="key">Repos</tspan><tspan class="dot">: </tspan><tspan class="val">36</tspan> <tspan class="dot">(Contributed: 1)</tspan> <tspan class="dot">|</tspan> <tspan class="key">Stars</tspan><tspan class="dot">: </tspan><tspan class="val">18</tspan> <tspan class="dot">|</tspan> <tspan class="key">Followers</tspan><tspan class="dot">: </tspan><tspan class="val">8</tspan></tspan>
+  <tspan x="368" y="478"><tspan class="key">Commits</tspan><tspan class="dot">: </tspan><tspan class="val">2,038</tspan> <tspan class="dot">|</tspan> <tspan class="key">Lines of Code</tspan><tspan class="dot">: </tspan><tspan class="val">143,090</tspan> <tspan class="add">(185,240++)</tspan>, <tspan class="del">(42,150--)</tspan></tspan>
   <tspan x="368" y="504"><tspan class="key">[Network Links]</tspan> <tspan class="dot">─────────────────────────────────────────────────────</tspan></tspan>
   <tspan x="368" y="522"><tspan class="key">GitHub</tspan><tspan class="dot">...: </tspan><a href="https://github.com/GeorgeMyller"><tspan class="link">github.com/GeorgeMyller</tspan></a>  <tspan class="dot">│</tspan>  <tspan class="key">LinkedIn</tspan><tspan class="dot">: </tspan><a href="https://linkedin.com/in/georgemyller"><tspan class="link">linkedin.com/in/georgemyller</tspan></a></tspan>
 </text>
@@ -137,10 +137,10 @@ text, tspan { white-space: pre; }
 <text x="45" y="708" font-size="12px" font-weight="bold" fill="#ffffff" text-anchor="middle">NORMAL</text>
 <polygon points="90,686 200,686 212,703 200,720 90,720 102,703" fill="#d0d7de"/>
 <text x="150" y="708" font-size="12px" font-weight="bold" fill="#1f2328" text-anchor="middle">git:main</text>
-<text x="224" y="708" font-size="12px" fill="#8250df">Python 3.12</text>
-<text x="315" y="708" font-size="12px" fill="#afb8c1">│</text>
-<text x="330" y="708" font-size="12px" fill="#0550ae">Swarm: 4 Active Daemons</text>
-<text x="730" y="708" font-size="12px" fill="#953800">Commits: 1,977</text>
+<text x="224" y="708" font-size="12px" fill="#8250df">Python 3.12 · Rust · Go</text>
+<text x="395" y="708" font-size="12px" fill="#afb8c1">│</text>
+<text x="410" y="708" font-size="12px" fill="#0550ae">Swarm: 4 Flagship Systems</text>
+<text x="730" y="708" font-size="12px" fill="#953800">Commits: 2,038</text>
 <text x="855" y="708" font-size="12px" fill="#afb8c1">│</text>
 <text x="870" y="708" font-size="12px" fill="#1a7f37">Portugal</text>
 <polygon points="965,686 1040,686 1040,720 965,720 953,703" fill="#0969da"/>
