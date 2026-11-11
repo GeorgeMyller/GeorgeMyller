@@ -106,13 +106,13 @@ text, tspan { white-space: pre; }
 <text y="336"><a href="https://github.com/GeorgeMyller/towerman-relay"><tspan x="368" class="link">towerman-relay</tspan></a><tspan x="516" class="online">● ONLINE</tspan><tspan x="618" class="white">Go Zero-Knowledge E2EE</tspan><tspan x="836" class="dim">X25519</tspan><tspan x="926" class="key">:8080</tspan></text>
 <text x="368" y="362"><tspan class="key">[Resource Allocation &amp; Stack Capacity (100%)]</tspan></text>
 <line x1="758" y1="358" x2="1016" y2="358" stroke="#afb8c1" stroke-width="1.2"/>
-<text y="380"><tspan x="376" class="white">Python / FastAPI</tspan><tspan x="518" class="bar-py">[</tspan><tspan x="528" textLength="172" lengthAdjust="spacingAndGlyphs" class="bar-py">██████████████░░░░░░</tspan><tspan x="702" class="bar-py">]</tspan><tspan x="716" class="bar-py">69%</tspan><tspan x="760" class="dim">Core Logic &amp; Agents</tspan></text>
+<text y="380"><tspan x="376" class="white">Python / FastAPI</tspan><tspan x="518" class="bar-py">[</tspan><tspan x="528" textLength="172" lengthAdjust="spacingAndGlyphs" class="bar-py">██████████████░░░░░░</tspan><tspan x="702" class="bar-py">]</tspan><tspan x="716" class="bar-py">70%</tspan><tspan x="760" class="dim">Core Logic &amp; Agents</tspan></text>
 <text y="398"><tspan x="376" class="white">TypeScript/React</tspan><tspan x="518" class="bar-ts">[</tspan><tspan x="528" textLength="172" lengthAdjust="spacingAndGlyphs" class="bar-ts">██████░░░░░░░░░░░░░░</tspan><tspan x="702" class="bar-ts">]</tspan><tspan x="716" class="bar-ts">28%</tspan><tspan x="760" class="dim">SPAs &amp; Dynamic UI</tspan></text>
-<text y="416"><tspan x="376" class="white">Shell / Rust / +</tspan><tspan x="518" class="bar-db">[</tspan><tspan x="528" textLength="172" lengthAdjust="spacingAndGlyphs" class="bar-db">█░░░░░░░░░░░░░░░░░░░</tspan><tspan x="702" class="bar-db">]</tspan><tspan x="716" class="bar-db"> 3%</tspan><tspan x="760" class="dim">Automation &amp; CI/CD</tspan></text>
+<text y="416"><tspan x="376" class="white">Rust / Go / +</tspan><tspan x="518" class="bar-db">[</tspan><tspan x="528" textLength="172" lengthAdjust="spacingAndGlyphs" class="bar-db">░░░░░░░░░░░░░░░░░░░░</tspan><tspan x="702" class="bar-db">]</tspan><tspan x="716" class="bar-db"> 2%</tspan><tspan x="760" class="dim">Native Kernels &amp; Perf</tspan></text>
 <text x="368" y="442"><tspan class="key">[GitHub Live Telemetry]</tspan></text>
 <line x1="570" y1="438" x2="1016" y2="438" stroke="#afb8c1" stroke-width="1.2"/>
 <text x="368" y="460"><tspan class="key">Repos</tspan><tspan class="dot">: </tspan><tspan class="val">36</tspan><tspan class="dot"> (Contributed: 1) | </tspan><tspan class="key">Stars</tspan><tspan class="dot">: </tspan><tspan class="val">18</tspan><tspan class="dot"> | </tspan><tspan class="key">Followers</tspan><tspan class="dot">: </tspan><tspan class="val">8</tspan></text>
-<text x="368" y="478"><tspan class="key">Commits</tspan><tspan class="dot">: </tspan><tspan class="val">2,062</tspan><tspan class="dot"> | </tspan><tspan class="key">Lines of Code</tspan><tspan class="dot">: </tspan><tspan class="val">143,090</tspan> <tspan class="add">(185,240++)</tspan><tspan class="dot">, </tspan><tspan class="del">(42,150--)</tspan></text>
+<text x="368" y="478"><tspan class="key">Commits</tspan><tspan class="dot">: </tspan><tspan class="val">2,064</tspan><tspan class="dot"> | </tspan><tspan class="key">Lines of Code</tspan><tspan class="dot">: </tspan><tspan class="val">143,090</tspan> <tspan class="add">(185,240++)</tspan><tspan class="dot">, </tspan><tspan class="del">(42,150--)</tspan></text>
 <text x="368" y="504"><tspan class="key">[Network Links]</tspan></text>
 <line x1="503" y1="500" x2="1016" y2="500" stroke="#afb8c1" stroke-width="1.2"/>
 <text x="368" y="522"><tspan class="key">GitHub</tspan><tspan class="dot">...: </tspan><a href="https://github.com/GeorgeMyller"><tspan class="link">github.com/GeorgeMyller</tspan></a><tspan class="dot">  │  </tspan><tspan class="key">LinkedIn</tspan><tspan class="dot">: </tspan><a href="https://linkedin.com/in/georgemyller"><tspan class="link">linkedin.com/in/georgemyller</tspan></a></text>
@@ -125,7 +125,7 @@ text, tspan { white-space: pre; }
 <text x="224" y="708" font-size="12px" fill="#8250df">Python 3.12 · Rust · Go</text>
 <text x="405" y="708" font-size="12px" fill="#afb8c1">│</text>
 <text x="422" y="708" font-size="12px" fill="#0550ae">Swarm: 4 Flagship Systems</text>
-<text x="730" y="708" font-size="12px" fill="#953800">Commits: 2,062</text>
+<text x="730" y="708" font-size="12px" fill="#953800">Commits: 2,064</text>
 <text x="855" y="708" font-size="12px" fill="#afb8c1">│</text>
 <text x="870" y="708" font-size="12px" fill="#1a7f37">Portugal</text>
 <polygon points="965,686 1040,686 1040,720 965,720 953,703" fill="#0969da"/>
