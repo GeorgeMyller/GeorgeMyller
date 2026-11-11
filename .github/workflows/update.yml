@@ -9,9 +9,8 @@ on:
       - main
     paths:
       - update_stats.py
-      - avatar.jpg
+      - pyproject.toml
 
-# Evita conflitos de pushes concorrentes
 concurrency:
   group: profile-stats
   cancel-in-progress: true
@@ -27,22 +26,18 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Setup Python
-        uses: actions/setup-python@v5
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
         with:
-          python-version: '3.12'
-          cache: 'pip'
+          enable-cache: true
 
-      - name: Install Dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
+      - name: Set up Python 3.12
+        run: uv python install 3.12
 
       - name: Run Stats Generator
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          python update_stats.py
+        run: uv run --with requests python update_stats.py
 
       - name: Commit & Push Changes
         run: |
