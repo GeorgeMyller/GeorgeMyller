@@ -2,7 +2,7 @@
 """Elite Dynamic GitHub Profile Terminal Card Generator.
 
 Transforms George Myller's profile into an interactive, animated AI Command Center
-with tmux split-pane, k9s-style daemon cluster table, btop-colored bars, and vector powerline.
+with tmux split-pane, k9s-style daemon cluster table, dynamic Top-3 language bars, and vector powerline.
 """
 
 import datetime
@@ -18,6 +18,37 @@ START_DATE = datetime.datetime(2019, 4, 10)
 
 TOKEN = os.environ.get("GITHUB_TOKEN") or os.environ.get("ACCESS_TOKEN") or ""
 HEADERS = {"Authorization": f"Bearer {TOKEN}"} if TOKEN else {}
+
+# Mapa de exibição automática para qualquer linguagem que entrar no Top 3 do perfil
+LANGUAGE_METADATA: Dict[str, Tuple[str, str]] = {
+    "Python": ("Python / FastAPI", "Core Logic & Agents"),
+    "TypeScript": ("TypeScript/React", "SPAs & Dynamic UI"),
+    "JavaScript": ("JavaScript / Web", "Frontend & Node.js"),
+    "Go": ("Go / Microsrv", "Zero-Knowledge & Net"),
+    "Rust": ("Rust / PyO3", "Native Kernels & Perf"),
+    "Swift": ("Swift / Apple", "Native iOS & macOS"),
+    "Kotlin": ("Kotlin / JVM", "Mobile & Backend"),
+    "Java": ("Java / Spring", "Enterprise Backend"),
+    "C++": ("C++ / Native", "High-Perf Systems"),
+    "C": ("C / Low-Level", "Embedded & Systems"),
+    "C#": ("C# / .NET Core", "Enterprise Systems"),
+    "SQL": ("SQL / BigQuery", "Data & Analytics"),
+    "Shell": ("Shell / DevOps", "Automation & CI/CD"),
+    "Dockerfile": ("Docker / Infra", "Containers & Cloud"),
+    "HCL": ("Terraform / IaC", "Cloud Infrastructure"),
+}
+
+# Linguagens ignoradas ou agrupadas para não poluir com marcação/notebooks
+LANGUAGE_ALIASES: Dict[str, str] = {
+    "Jupyter Notebook": "Python",
+    "TSX": "TypeScript",
+    "JSX": "JavaScript",
+    "PLpgSQL": "SQL",
+    "Batchfile": "Shell",
+    "Makefile": "Shell",
+}
+
+IGNORED_LANGUAGES = {"HTML", "CSS", "SCSS", "Less", "Rich Text Format", "TeX"}
 
 
 def calculate_uptime(start_date: datetime.datetime) -> str:
@@ -47,44 +78,98 @@ def calculate_uptime(start_date: datetime.datetime) -> str:
 
 
 def build_bar_blocks(percent: int, width: int = 20) -> str:
-    """Constrói apenas os 20 blocos internos da barra estilo btop."""
+    """Constrói os 20 blocos internos da barra estilo btop."""
     clamped = max(0, min(100, percent))
     filled = round((clamped / 100) * width)
     empty = width - filled
     return f"{'█' * filled}{'░' * empty}"
 
 
-def normalize_three_way(py_w: int, ts_w: int, sys_w: int) -> Tuple[int, int, int]:
-    """Garante que os 3 percentuais somem exatamente 100%."""
-    total = py_w + ts_w + sys_w
-    if total <= 0:
-        return (68, 20, 12)
-    py_pct = round((py_w / total) * 100)
-    ts_pct = round((ts_w / total) * 100)
-    # Limites estéticos realistas mantendo soma exata de 100%
-    py_pct = max(55, min(74, py_pct))
-    ts_pct = max(14, min(28, ts_pct))
-    sys_pct = 100 - py_pct - ts_pct
-    if sys_pct < 10:
-        diff = 10 - sys_pct
-        py_pct -= diff
-        sys_pct = 10
-    return (py_pct, ts_pct, sys_pct)
+def compute_dynamic_stack_bars(lang_bytes: Dict[str, int]) -> List[Tuple[str, int, str, str]]:
+    """Calcula automaticamente o Top 3 de linguagens reais garantindo soma exata de 100%."""
+    cleaned: Dict[str, int] = {}
+    for raw_lang, size in lang_bytes.items():
+        if raw_lang in IGNORED_LANGUAGES or size <= 0:
+            continue
+        canonical = LANGUAGE_ALIASES.get(raw_lang, raw_lang)
+        cleaned[canonical] = cleaned.get(canonical, 0) + size
+
+    # Mescla JavaScript em TypeScript se ambos existirem para consolidar Frontend/Node
+    if "TypeScript" in cleaned and "JavaScript" in cleaned:
+        cleaned["TypeScript"] += cleaned.pop("JavaScript")
+
+    total_bytes = sum(cleaned.values())
+    if total_bytes <= 0 or len(cleaned) == 0:
+        return [
+            ("Python / FastAPI", 72, "Core Logic & Agents", "bar-py"),
+            ("TypeScript/React", 18, "SPAs & Dynamic UI", "bar-ts"),
+            ("Go / Rust / Dock", 10, "Systems & Containers", "bar-db"),
+        ]
+
+    sorted_langs = sorted(cleaned.items(), key=lambda item: item[1], reverse=True)
+    bar_classes = ["bar-py", "bar-ts", "bar-db"]
+
+    def meta_for(lang_name: str) -> Tuple[str, str]:
+        if lang_name in LANGUAGE_METADATA:
+            return LANGUAGE_METADATA[lang_name]
+        return (lang_name[:16], "Software Engineering")
+
+    if len(sorted_langs) == 1:
+        l1, _ = sorted_langs[0]
+        lbl1, desc1 = meta_for(l1)
+        return [(lbl1, 100, desc1, "bar-py")]
+
+    if len(sorted_langs) == 2:
+        (l1, b1), (l2, _) = sorted_langs
+        pct1 = max(1, min(99, round((b1 / total_bytes) * 100)))
+        pct2 = 100 - pct1
+        lbl1, desc1 = meta_for(l1)
+        lbl2, desc2 = meta_for(l2)
+        return [
+            (lbl1, pct1, desc1, "bar-py"),
+            (lbl2, pct2, desc2, "bar-ts"),
+        ]
+
+    # 3 ou mais linguagens: Top 1, Top 2, e a 3ª barra agrega o restante somando exatos 100%
+    (l1, b1), (l2, b2) = sorted_langs[0], sorted_langs[1]
+    pct1 = max(1, min(98, round((b1 / total_bytes) * 100)))
+    pct2 = max(1, min(99 - pct1, round((b2 / total_bytes) * 100)))
+    pct3 = 100 - pct1 - pct2
+
+    lbl1, desc1 = meta_for(l1)
+    lbl2, desc2 = meta_for(l2)
+
+    if len(sorted_langs) == 3:
+        l3 = sorted_langs[2][0]
+        lbl3, desc3 = meta_for(l3)
+    else:
+        # Combina os nomes das linguagens #3 e #4 automaticamente (ex.: "Go / Rust / Dock")
+        top_rest = [name for name, _ in sorted_langs[2:4]]
+        short_names = ["Dock" if n == "Dockerfile" else n[:6] for n in top_rest]
+        if len(sorted_langs) > 4:
+            short_names.append("+")
+        combined_label = " / ".join(short_names)
+        lbl3 = combined_label[:16]
+        _, desc3 = meta_for(sorted_langs[2][0])
+
+    return [
+        (lbl1, pct1, desc1, bar_classes[0]),
+        (lbl2, pct2, desc2, bar_classes[1]),
+        (lbl3, pct3, desc3, bar_classes[2]),
+    ]
 
 
 def fetch_github_stats() -> Dict[str, Any]:
-    """Coleta estatísticas reais do GitHub com soma exata de 100% nas barras de stack."""
+    """Coleta estatísticas e bytes por linguagem em todos os repositórios do GitHub."""
     stats: Dict[str, Any] = {
         "repos": 36,
         "contributed": 12,
         "stars": 18,
         "followers": 8,
-        "commits": 2038,
+        "commits": 2056,
         "loc_added": 185240,
         "loc_deleted": 42150,
-        "py_pct": 68,
-        "ts_pct": 20,
-        "sys_pct": 12,
+        "lang_bytes": {},
     }
 
     try:
@@ -110,30 +195,16 @@ def fetch_github_stats() -> Dict[str, Any]:
                 )
                 stats["stars"] = total_stars
 
-                # Contabiliza proporção real entre as 3 frentes garantindo soma = 100%
-                py_count = 0
-                ts_count = 0
-                sys_count = 0
+                # Fallback de linguagens via REST caso não haja GITHUB_TOKEN para GraphQL
+                fallback_bytes: Dict[str, int] = {}
                 for r in repos_data:
                     if not isinstance(r, dict) or r.get("fork"):
                         continue
-                    lang = (r.get("language") or "").lower()
-                    if lang in ("python", "jupyter notebook"):
-                        py_count += 1
-                    elif lang in ("typescript", "javascript"):
-                        ts_count += 1
-                    elif lang in ("go", "rust", "dockerfile", "shell", "html"):
-                        sys_count += 1
-
-                # Adiciona peso de arquitetura (Rust/Go/Docker nos monólitos híbridos)
-                py_pct, ts_pct, sys_pct = normalize_three_way(
-                    max(1, py_count),
-                    max(1, ts_count * 2),
-                    max(1, sys_count * 2 + 2),
-                )
-                stats["py_pct"] = py_pct
-                stats["ts_pct"] = ts_pct
-                stats["sys_pct"] = sys_pct
+                    lang = r.get("language")
+                    size_kb = max(1, int(r.get("size") or 1))
+                    if lang:
+                        fallback_bytes[lang] = fallback_bytes.get(lang, 0) + (size_kb * 1024)
+                stats["lang_bytes"] = fallback_bytes
     except Exception as e:
         print(f"Notice: using cached stars ({e})")
 
@@ -151,6 +222,19 @@ def fetch_github_stats() -> Dict[str, Any]:
                 totalContributions
               }
             }
+            repositories(first: 100, ownerAffiliations: OWNER, isFork: false, privacy: PUBLIC) {
+              nodes {
+                name
+                languages(first: 10, orderBy: {field: SIZE, direction: DESC}) {
+                  edges {
+                    size
+                    node {
+                      name
+                    }
+                  }
+                }
+              }
+            }
           }
         }
         """
@@ -159,7 +243,7 @@ def fetch_github_stats() -> Dict[str, Any]:
                 "https://api.github.com/graphql",
                 json={"query": query, "variables": {"login": USERNAME}},
                 headers=HEADERS,
-                timeout=8,
+                timeout=10,
             )
             if res.status_code == 200:
                 data = res.json().get("data", {}).get("user", {})
@@ -175,6 +259,25 @@ def fetch_github_stats() -> Dict[str, Any]:
                     stats["contributed"] = data.get("repositoriesContributedTo", {}).get(
                         "totalCount", stats["contributed"]
                     )
+
+                    # Soma exata de bytes de todas as linguagens em todos os repositórios
+                    gql_lang_bytes: Dict[str, int] = {}
+                    repo_nodes = data.get("repositories", {}).get("nodes", []) or []
+                    for repo_node in repo_nodes:
+                        if not isinstance(repo_node, dict):
+                            continue
+                        edges = (repo_node.get("languages") or {}).get("edges") or []
+                        for edge in edges:
+                            if not isinstance(edge, dict):
+                                continue
+                            lang_name = (edge.get("node") or {}).get("name")
+                            byte_size = int(edge.get("size") or 0)
+                            if lang_name and byte_size > 0:
+                                gql_lang_bytes[lang_name] = (
+                                    gql_lang_bytes.get(lang_name, 0) + byte_size
+                                )
+                    if gql_lang_bytes:
+                        stats["lang_bytes"] = gql_lang_bytes
         except Exception as e:
             print(f"Notice: using cached GraphQL stats ({e})")
 
@@ -214,6 +317,7 @@ def build_svg(
     ascii_lines: List[str],
     stats: Dict[str, Any],
     uptime_str: str,
+    stack_bars: List[Tuple[str, int, str, str]],
 ) -> str:
     """Monta o card de terminal interativo com alinhamento vetorial pixel-perfect."""
     is_dark = theme == "dark"
@@ -285,13 +389,6 @@ def build_svg(
     height = 720
 
     loc_total = stats["loc_added"] - stats["loc_deleted"]
-    py_pct = int(stats.get("py_pct", 68))
-    ts_pct = int(stats.get("ts_pct", 20))
-    sys_pct = 100 - py_pct - ts_pct
-
-    py_blocks = build_bar_blocks(py_pct)
-    ts_blocks = build_bar_blocks(ts_pct)
-    sys_blocks = build_bar_blocks(sys_pct)
 
     def esc(s: Any) -> str:
         return html.escape(str(s), quote=True)
@@ -375,7 +472,7 @@ text, tspan { white-space: pre; }
         f'<text x="{width - 24}" y="27" font-size="12px" fill="{text_dim}" text-anchor="end">zsh · tmux 3.4 · 1040x720</text>'
     )
 
-    # 3. Interactive Prompt Bar with Cursor (no extra whitespace between tspans)
+    # 3. Interactive Prompt Bar with Cursor
     prompt_y = 70
     svg.append(
         f'<text x="22" y="{prompt_y}">'
@@ -433,13 +530,11 @@ text, tspan { white-space: pre; }
         f'<rect x="{ascii_x}" y="{box_y}" width="{box_w}" height="{box_h}" rx="8" fill="{pill_bg}" stroke="{border_color}" stroke-width="1"/>'
     )
 
-    # Vector bracket frame inside Spec Box (x=36 to x=318, perfectly symmetric 14px padding on left and right)
-    b_left = ascii_x + 14    # 36
+    b_left = ascii_x + 14           # 36
     b_right = ascii_x + box_w - 14  # 318
-    b_top = box_y + 18       # 446
-    b_bot = box_y + box_h - 14  # 544
+    b_top = box_y + 18              # 446
+    b_bot = box_y + box_h - 14      # 544
 
-    # Top bracket left segment + title + right segment
     svg.append(
         f'<path d="M {b_left} {b_top + 8} L {b_left} {b_top} L {b_left + 18} {b_top}" stroke="{title_color}" stroke-width="1.8" fill="none" stroke-linecap="square"/>'
     )
@@ -450,7 +545,6 @@ text, tspan { white-space: pre; }
         f'<path d="M {b_left + 202} {b_top} L {b_right} {b_top} L {b_right} {b_top + 8}" stroke="{title_color}" stroke-width="1.8" fill="none" stroke-linecap="square"/>'
     )
 
-    # Spec rows with explicit x-aligned columns inside [36..318]
     row_x_key = b_left + 10   # 46
     row_x_col = b_left + 78   # 114
     row_x_val = b_left + 90   # 126
@@ -468,7 +562,6 @@ text, tspan { white-space: pre; }
         f'<text y="{spec_y1 + 57}"><tspan x="{row_x_key}" class="key">• Arch</tspan><tspan x="{row_x_col}" class="dim">:</tspan><tspan x="{row_x_val}" class="val">Clean Arch &amp; SOLID</tspan></text>'
     )
 
-    # Bottom bracket matching exact left (36) and right (318) coordinates
     svg.append(
         f'<path d="M {b_left} {b_bot - 8} L {b_left} {b_bot} L {b_right} {b_bot} L {b_right} {b_bot - 8}" stroke="{title_color}" stroke-width="1.8" fill="none" stroke-linecap="square"/>'
     )
@@ -548,7 +641,7 @@ text, tspan { white-space: pre; }
             f"</text>"
         )
 
-    # Block C: Resource Allocation & Stack Capacity (sums to 100%, pixel-aligned columns)
+    # Block C: Dynamic Top-3 Resource Allocation & Stack Capacity (100% Automatic)
     r_y += step_y + 8
     add_section_header(r_y, "[Resource Allocation & Stack Capacity (100%)]", "key", info_x + 390)
 
@@ -559,20 +652,17 @@ text, tspan { white-space: pre; }
     bar_pct_x = info_x + 348       # 716
     bar_desc_x = info_x + 392      # 760
 
-    bars = [
-        ("Python / FastAPI", py_blocks, f"{py_pct:2d}%", "Core Logic & Agents", "bar-py"),
-        ("TypeScript/React", ts_blocks, f"{ts_pct:2d}%", "SPAs & Dynamic UI", "bar-ts"),
-        ("Rust / Go / Dock", sys_blocks, f"{sys_pct:2d}%", "Systems & Containers", "bar-db"),
-    ]
-    for b_label, b_blocks, b_pct, b_desc, b_cls in bars:
+    for b_label, b_pct_num, b_desc, b_cls in stack_bars:
         r_y += step_y
+        b_blocks = build_bar_blocks(b_pct_num)
+        b_pct_str = f"{b_pct_num:2d}%"
         svg.append(
             f'<text y="{r_y}">'
             f'<tspan x="{bar_label_x}" class="white">{esc(b_label)}</tspan>'
             f'<tspan x="{bar_open_x}" class="{b_cls}">[</tspan>'
             f'<tspan x="{bar_blocks_x}" textLength="172" lengthAdjust="spacingAndGlyphs" class="{b_cls}">{b_blocks}</tspan>'
             f'<tspan x="{bar_close_x}" class="{b_cls}">]</tspan>'
-            f'<tspan x="{bar_pct_x}" class="{b_cls}">{b_pct}</tspan>'
+            f'<tspan x="{bar_pct_x}" class="{b_cls}">{b_pct_str}</tspan>'
             f'<tspan x="{bar_desc_x}" class="dim">{esc(b_desc)}</tspan>'
             f"</text>"
         )
@@ -685,20 +775,20 @@ def main() -> None:
     print("Fetching GitHub stats...")
     stats = fetch_github_stats()
     uptime_str = calculate_uptime(START_DATE)
+    stack_bars = compute_dynamic_stack_bars(stats.get("lang_bytes", {}))
 
-    print(
-        f"Stack percentages: Python={stats['py_pct']}%, TS={stats['ts_pct']}%, Systems={stats['sys_pct']}% (Sum={stats['py_pct'] + stats['ts_pct'] + stats['sys_pct']}%)"
-    )
+    for lbl, pct, desc, _ in stack_bars:
+        print(f"  -> {lbl:16s}: {pct:2d}% ({desc})")
 
     print("Generating custom GM AI-CORE logo...")
     logo_lines = get_gm_logo()
 
     print("Generating refined gm_terminal_dark.svg...")
-    dark_svg = build_svg("dark", logo_lines, stats, uptime_str)
+    dark_svg = build_svg("dark", logo_lines, stats, uptime_str, stack_bars)
     (root_dir / "gm_terminal_dark.svg").write_text(dark_svg, encoding="utf-8")
 
     print("Generating refined gm_terminal_light.svg...")
-    light_svg = build_svg("light", logo_lines, stats, uptime_str)
+    light_svg = build_svg("light", logo_lines, stats, uptime_str, stack_bars)
     (root_dir / "gm_terminal_light.svg").write_text(light_svg, encoding="utf-8")
 
     (root_dir / "dark_mode.svg").unlink(missing_ok=True)
