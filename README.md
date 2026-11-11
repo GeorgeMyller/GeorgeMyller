@@ -2,8 +2,8 @@
 
 <a href="https://github.com/GeorgeMyller">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/GeorgeMyller/GeorgeMyller/main/gm_terminal_dark.svg?v=1794434289">
-    <img alt="George Myller — AI Systems Architect & Full-Stack Engineer" src="https://raw.githubusercontent.com/GeorgeMyller/GeorgeMyller/main/gm_terminal_light.svg?v=1794434289" width="100%">
+    <source media="(prefers-color-scheme: dark)" srcset="./gm_terminal_dark.svg">
+    <img alt="George Myller — AI Systems Architect & Full-Stack Engineer" src="./gm_terminal_light.svg" width="100%">
   </picture>
 </a>
 
