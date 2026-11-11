@@ -1,0 +1,8 @@
+[project]
+name = "george-myller-profile"
+version = "2.0.0"
+description = "Dynamic GitHub Profile Terminal Card Generator"
+requires-python = ">=3.12"
+dependencies = [
+    "requests>=2.32.0",
+]
