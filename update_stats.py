@@ -24,7 +24,7 @@ LANGUAGE_METADATA: Dict[str, Tuple[str, str]] = {
     "Python": ("Python / FastAPI", "Core Logic & Agents"),
     "TypeScript": ("TypeScript/React", "SPAs & Dynamic UI"),
     "JavaScript": ("JavaScript / Web", "Frontend & Node.js"),
-    "Go": ("Go / Microsrv", "Zero-Knowledge & Net"),
+    "Go": ("Go / Systems", "Go, Swift & E2EE"),
     "Rust": ("Rust / PyO3", "Native Kernels & Perf"),
     "Swift": ("Swift / Apple", "Native iOS & macOS"),
     "Kotlin": ("Kotlin / JVM", "Mobile & Backend"),
@@ -597,7 +597,7 @@ text, tspan { white-space: pre; }
         ("OS", "macOS, Linux (Docker / Distroless)"),
         ("Host", "Portugal"),
         ("Uptime", uptime_str),
-        ("Stack.Core", "Python 3.12 (FastAPI), TypeScript, React, Rust, Go"),
+        ("Stack.Core", "Python 3.12 (FastAPI), TypeScript, React, Go, Swift, Rust"),
         ("Engineering", "Spec-Driven Dev (SDD), Clean Arch, TDD, Multi-Agent"),
     ]
     for key_label, val_label in id_rows:
@@ -633,10 +633,10 @@ text, tspan { white-space: pre; }
     )
 
     daemons = [
+        ("towerman", "https://github.com/GeorgeMyller/towerman", "● ONLINE", "Go + Swift Apple Radar", "v2.0.1", ":7352"),
         ("SimuladorRemap", "https://github.com/GeorgeMyller/SimuladorRemap", "● RUNNING", "PyO3 Rust + LAYA.ai ECU", ">85% cov", ":8000"),
         ("sintetica", "https://github.com/GeorgeMyller/sintetica", "● ACTIVE", "Pydantic v2 + PII-Guard", "570 pass", ":9000"),
         ("CodeConcilAI", "https://github.com/GeorgeMyller/CodeConcilAI", "● RUNNING", "Multi-Agent SaaS Engine", "51 pass", ":3000"),
-        ("towerman-relay", "https://github.com/GeorgeMyller/towerman-relay", "● ONLINE", "Go Zero-Knowledge E2EE", "X25519", ":8080"),
     ]
     for d_name, d_url, d_status, d_engine, d_tests, d_port in daemons:
         r_y += step_y
@@ -746,7 +746,7 @@ text, tspan { white-space: pre; }
 
     # Segment 3: Environment info
     svg.append(
-        f'<text x="{seg2_x + seg2_w + 24}" y="{bar_y + 22}" font-size="12px" fill="{prompt_path}">Python 3.12 · Rust · Go</text>'
+        f'<text x="{seg2_x + seg2_w + 24}" y="{bar_y + 22}" font-size="12px" fill="{prompt_path}">Python 3.12 · Go · Swift</text>'
     )
     svg.append(
         f'<text x="{seg2_x + seg2_w + 205}" y="{bar_y + 22}" font-size="12px" fill="{dot_color}">│</text>'
