@@ -94,7 +94,7 @@ text, tspan { white-space: pre; }
 <text y="130"><tspan x="368" class="key">Role</tspan><tspan class="dot">..........: </tspan><tspan x="506" class="val">AI Systems Architect &amp; Full-Stack Engineer</tspan></text>
 <text y="148"><tspan x="368" class="key">OS</tspan><tspan class="dot">............: </tspan><tspan x="506" class="val">macOS, Linux (Docker / Distroless)</tspan></text>
 <text y="166"><tspan x="368" class="key">Host</tspan><tspan class="dot">..........: </tspan><tspan x="506" class="val">Portugal</tspan></text>
-<text y="184"><tspan x="368" class="key">Uptime</tspan><tspan class="dot">........: </tspan><tspan x="506" class="val">7 yrs, 7 mos, 11 days</tspan></text>
+<text y="184"><tspan x="368" class="key">Uptime</tspan><tspan class="dot">........: </tspan><tspan x="506" class="val">7 yrs, 7 mos, 12 days</tspan></text>
 <text y="202"><tspan x="368" class="key">Stack.Core</tspan><tspan class="dot">....: </tspan><tspan x="506" class="val">Python 3.12 (FastAPI), TypeScript, React, Go, Swift, Rust</tspan></text>
 <text y="220"><tspan x="368" class="key">Engineering</tspan><tspan class="dot">...: </tspan><tspan x="506" class="val">Spec-Driven Dev (SDD), Clean Arch, TDD, Multi-Agent</tspan></text>
 <text x="368" y="246"><tspan class="key">[Autonomous Swarm: Active Daemons]</tspan></text>
