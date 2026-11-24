@@ -94,7 +94,7 @@ text, tspan { white-space: pre; }
 <text y="130"><tspan x="368" class="key">Role</tspan><tspan class="dot">..........: </tspan><tspan x="506" class="val">AI Systems Architect &amp; Full-Stack Engineer</tspan></text>
 <text y="148"><tspan x="368" class="key">OS</tspan><tspan class="dot">............: </tspan><tspan x="506" class="val">macOS, Linux (Docker / Distroless)</tspan></text>
 <text y="166"><tspan x="368" class="key">Host</tspan><tspan class="dot">..........: </tspan><tspan x="506" class="val">Portugal</tspan></text>
-<text y="184"><tspan x="368" class="key">Uptime</tspan><tspan class="dot">........: </tspan><tspan x="506" class="val">7 yrs, 7 mos, 13 days</tspan></text>
+<text y="184"><tspan x="368" class="key">Uptime</tspan><tspan class="dot">........: </tspan><tspan x="506" class="val">7 yrs, 7 mos, 14 days</tspan></text>
 <text y="202"><tspan x="368" class="key">Stack.Core</tspan><tspan class="dot">....: </tspan><tspan x="506" class="val">Python 3.12 (FastAPI), TypeScript, React, Go, Swift, Rust</tspan></text>
 <text y="220"><tspan x="368" class="key">Engineering</tspan><tspan class="dot">...: </tspan><tspan x="506" class="val">Spec-Driven Dev (SDD), Clean Arch, TDD, Multi-Agent</tspan></text>
 <text x="368" y="246"><tspan class="key">[Autonomous Swarm: Active Daemons]</tspan></text>
@@ -112,7 +112,7 @@ text, tspan { white-space: pre; }
 <text x="368" y="442"><tspan class="key">[GitHub Live Telemetry]</tspan></text>
 <line x1="570" y1="438" x2="1016" y2="438" stroke="#484f58" stroke-width="1.2"/>
 <text x="368" y="460"><tspan class="key">Repos</tspan><tspan class="dot">: </tspan><tspan class="val">38</tspan><tspan class="dot"> (Contributed: 1) | </tspan><tspan class="key">Stars</tspan><tspan class="dot">: </tspan><tspan class="val">18</tspan><tspan class="dot"> | </tspan><tspan class="key">Followers</tspan><tspan class="dot">: </tspan><tspan class="val">9</tspan></text>
-<text x="368" y="478"><tspan class="key">Commits</tspan><tspan class="dot">: </tspan><tspan class="val">2,152</tspan><tspan class="dot"> | </tspan><tspan class="key">Lines of Code</tspan><tspan class="dot">: </tspan><tspan class="val">143,090</tspan> <tspan class="add">(185,240++)</tspan><tspan class="dot">, </tspan><tspan class="del">(42,150--)</tspan></text>
+<text x="368" y="478"><tspan class="key">Commits</tspan><tspan class="dot">: </tspan><tspan class="val">2,153</tspan><tspan class="dot"> | </tspan><tspan class="key">Lines of Code</tspan><tspan class="dot">: </tspan><tspan class="val">143,090</tspan> <tspan class="add">(185,240++)</tspan><tspan class="dot">, </tspan><tspan class="del">(42,150--)</tspan></text>
 <text x="368" y="504"><tspan class="key">[Network Links]</tspan></text>
 <line x1="503" y1="500" x2="1016" y2="500" stroke="#484f58" stroke-width="1.2"/>
 <text x="368" y="522"><tspan class="key">GitHub</tspan><tspan class="dot">...: </tspan><a href="https://github.com/GeorgeMyller"><tspan class="link">github.com/GeorgeMyller</tspan></a><tspan class="dot">  │  </tspan><tspan class="key">LinkedIn</tspan><tspan class="dot">: </tspan><a href="https://linkedin.com/in/georgemyller"><tspan class="link">linkedin.com/in/georgemyller</tspan></a></text>
@@ -125,7 +125,7 @@ text, tspan { white-space: pre; }
 <text x="224" y="708" font-size="12px" fill="#bc8cff">Python 3.12 · Go · Swift</text>
 <text x="405" y="708" font-size="12px" fill="#484f58">│</text>
 <text x="422" y="708" font-size="12px" fill="#a5d6ff">Swarm: 4 Flagship Systems</text>
-<text x="730" y="708" font-size="12px" fill="#ffa657">Commits: 2,152</text>
+<text x="730" y="708" font-size="12px" fill="#ffa657">Commits: 2,153</text>
 <text x="855" y="708" font-size="12px" fill="#484f58">│</text>
 <text x="870" y="708" font-size="12px" fill="#7ee787">Portugal</text>
 <polygon points="965,686 1040,686 1040,720 965,720 953,703" fill="#1f6feb"/>
